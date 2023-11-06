@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generator Gradientów</title>
+    <style>
+        .gradient-box {
+            width: 300px;
+            height: 150px;
+            border: 1px solid #ccc;
+            margin: 20px auto;
+            border-radius:20px
+        }
+        body {
+            font-family: Calibri;
+            background: #757873;
+        }
+
+        .naglowek {
+            color:#e2e2e2;
+            background:#0f2001;
+            width:100%;
+            height:120px;
+            float:left;
+            text-align: center;
+            font-size: 24;
+            border-radius:20px
+        }
+
+        .srodek {
+            color:black;
+            background:#EAF1D5;
+            width:25%;
+            height:100px;
+            float:left;
+            padding: 10px;
+            border-radius:20px
+        }
+    </style>
+</head>
+<body>
+    <div class="naglowek"><h1>Generator Gradientów</h1></div>
+    
+    <div class="srodek">
+    <label for="startColor">Początkowy kolor:</label>
+    <input type="color" id="startColor" value="#ff5733"><br>
+    <label for="endColor">Końcowy kolor:</label>
+    <input type="color" id="endColor" value="#c70039"><br>
+    <label for="direction">Kierunek:</label>
+    <select id="direction">
+        <option value="to right">W prawo</option>
+        <option value="to left">W lewo</option>
+        <option value="to top">W górę</option>
+        <option value="to bottom">W dół</option>
+    </select><br>
+    <button onclick="generateGradient()">Generuj Gradient</button>
+</div>
+    <br><br><br><br><br><br><br><br><br><div class="gradient-box" id="generatedGradient">
+</div>
+    <script>
+        function generateGradient() {
+            var startColor = document.getElementById("startColor").value;
+            var endColor = document.getElementById("endColor").value;
+            var direction = document.getElementById("direction").value;
+            var gradientBox = document.getElementById("generatedGradient");
+
+            gradientBox.style.background = "linear-gradient(" + direction + ", " + startColor + ", " + endColor + ")";
+        }
+    </script>
+</body>
+</html>
